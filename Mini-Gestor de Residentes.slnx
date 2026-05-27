@@ -1,14 +1,14 @@
 <Solution>
   <Folder Name="/API/">
-    <Project Path="Mini-Gestor de Residentes/Mini-Gestor de Residentes.csproj" />
+    <Project Path="src/Mini-Gestor de Residentes/Mini-Gestor de Residentes.csproj" />
   </Folder>
   <Folder Name="/Application/">
-    <Project Path="Residentes.Application/Residentes.Application.csproj" />
+    <Project Path="src/Residentes.Application/Residentes.Application.csproj" />
   </Folder>
   <Folder Name="/Domain/">
-    <Project Path="Residentes.Domain/Residentes.Domain.csproj" />
+    <Project Path="src/Residentes.Domain/Residentes.Domain.csproj" />
   </Folder>
   <Folder Name="/Infraestruture/">
-    <Project Path="Residentes.Infraestructure/Residentes.Infraestructure.csproj" />
+    <Project Path="src/Residentes.Infraestructure/Residentes.Infraestructure.csproj" />
   </Folder>
 </Solution>

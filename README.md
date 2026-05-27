@@ -137,24 +137,37 @@ git rebase main
 
 ## Estructura del repositorio
 
+Seguimos el layout estándar de proyectos serios en .NET: la **solución**
+(archivo `.slnx`) vive en la raíz, y el **código** está bajo `src/`. Cuando
+añadamos tests (Nivel 6 del Roadmap) irán en una carpeta `tests/` paralela.
+
 ```
-Mini-Gestor de Residentes/        → Proyecto Web API (capa de presentación)
-├── Controllers/                  → Endpoints HTTP (solo hablan con Application)
-└── Program.cs                    → Composición / Inyección de Dependencias
-
-Residentes.Domain/                → Núcleo del negocio (no depende de NADIE)
-├── Entities/Residente.cs         → Entidad con invariantes y comportamiento
-└── Interfaces/                   → Contratos que el dominio NECESITA cumplir
-    └── IResidenteRepository.cs
-
-Residentes.Application/           → Casos de uso (depende solo de Domain)
-├── Dtos/                         → Objetos de entrada/salida del API
-└── Services/ResidenteService.cs  → Orquestación de operaciones
-
-Residentes.Infraestructure/       → Detalles técnicos (depende de Domain)
-└── Repositories/                 → Implementación concreta del repositorio
-    └── ResidenteRepository.cs    → Persistencia en memoria (provisional)
+MasterClassNet-Residentes/                  → raíz del repo
+├── Mini-Gestor de Residentes.slnx          → archivo de solución (.NET)
+├── README.md
+├── .gitignore
+└── src/                                    → todo el código de producción
+    ├── Mini-Gestor de Residentes/          → Proyecto Web API (presentación)
+    │   ├── Controllers/                    → Endpoints HTTP (solo hablan con Application)
+    │   └── Program.cs                      → Composición / Inyección de Dependencias
+    │
+    ├── Residentes.Domain/                  → Núcleo del negocio (no depende de NADIE)
+    │   ├── Entities/Residente.cs           → Entidad con invariantes y comportamiento
+    │   └── Interfaces/                     → Contratos que el dominio NECESITA cumplir
+    │       └── IResidenteRepository.cs
+    │
+    ├── Residentes.Application/             → Casos de uso (depende solo de Domain)
+    │   ├── Dtos/                           → Objetos de entrada/salida del API
+    │   └── Services/ResidenteService.cs    → Orquestación de operaciones
+    │
+    └── Residentes.Infraestructure/         → Detalles técnicos (depende de Domain)
+        └── Repositories/                   → Implementación concreta del repositorio
+            └── ResidenteRepository.cs      → Persistencia en memoria (provisional)
 ```
+
+> 💡 **¿"Solución" = carpeta?** No. En .NET una "solución" es el archivo `.slnx`
+> (o `.sln`) que **agrupa proyectos**. La carpeta `src/` es solo una convención
+> de organización dentro del repo, no es la solución en sí.
 
 ### Regla de dependencias (importante)
 
@@ -176,16 +189,16 @@ eso rompe el diseño.
 
 | Concepto | Dónde verlo en el código |
 |---|---|
-| Entidad de dominio con invariantes | `Residentes.Domain/Entities/Residente.cs` |
+| Entidad de dominio con invariantes | `src/Residentes.Domain/Entities/Residente.cs` |
 | Setters privados + factory por constructor | mismo archivo |
 | Comportamiento en la entidad (`ActualizarDatos`) | mismo archivo |
-| Interfaz de repositorio en el Domain | `Residentes.Domain/Interfaces/IResidenteRepository.cs` |
+| Interfaz de repositorio en el Domain | `src/Residentes.Domain/Interfaces/IResidenteRepository.cs` |
 | Inversión de Dependencias (D de SOLID) | la implementación está en Infrastructure |
-| DTOs separados de la entidad | `Residentes.Application/Dtos/` |
+| DTOs separados de la entidad | `src/Residentes.Application/Dtos/` |
 | Mapeo manual entidad ↔ DTO | `ResidenteService.MapearADto` |
-| Servicio de aplicación | `Residentes.Application/Services/ResidenteService.cs` |
-| Inyección de dependencias en el contenedor | `Program.cs` |
-| Controlador delgado, sin lógica de negocio | `Controllers/ResidentesController/ResidentesController.cs` |
+| Servicio de aplicación | `src/Residentes.Application/Services/ResidenteService.cs` |
+| Inyección de dependencias en el contenedor | `src/Mini-Gestor de Residentes/Program.cs` |
+| Controlador delgado, sin lógica de negocio | `src/Mini-Gestor de Residentes/Controllers/ResidentesController/ResidentesController.cs` |
 | CRUD REST con códigos HTTP correctos (200/201/204/400/404) | mismo controlador |
 
 ---
@@ -208,7 +221,7 @@ Hay ejemplos listos para usar en el archivo `.http` del proyecto Api.
 
 ```bash
 dotnet build
-dotnet run --project "Mini-Gestor de Residentes"
+dotnet run --project "src/Mini-Gestor de Residentes"
 ```
 
 Abre `https://localhost:xxxx/` para ver Swagger.
