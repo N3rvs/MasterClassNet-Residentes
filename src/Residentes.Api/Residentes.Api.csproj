@@ -4,7 +4,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <RootNamespace>Mini_Gestor_de_Residentes</RootNamespace>
+    <RootNamespace>Residentes.Api</RootNamespace>
+    <AssemblyName>Residentes.Api</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

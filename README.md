@@ -147,7 +147,7 @@ MasterClassNet-Residentes/                  → raíz del repo
 ├── README.md
 ├── .gitignore
 └── src/                                    → todo el código de producción
-    ├── Mini-Gestor de Residentes/          → Proyecto Web API (presentación)
+    ├── Residentes.Api/                     → Proyecto Web API (presentación, habla con el cliente)
     │   ├── Controllers/                    → Endpoints HTTP (solo hablan con Application)
     │   └── Program.cs                      → Composición / Inyección de Dependencias
     │
@@ -197,8 +197,8 @@ eso rompe el diseño.
 | DTOs separados de la entidad | `src/Residentes.Application/Dtos/` |
 | Mapeo manual entidad ↔ DTO | `ResidenteService.MapearADto` |
 | Servicio de aplicación | `src/Residentes.Application/Services/ResidenteService.cs` |
-| Inyección de dependencias en el contenedor | `src/Mini-Gestor de Residentes/Program.cs` |
-| Controlador delgado, sin lógica de negocio | `src/Mini-Gestor de Residentes/Controllers/ResidentesController/ResidentesController.cs` |
+| Inyección de dependencias en el contenedor | `src/Residentes.Api/Program.cs` |
+| Controlador delgado, sin lógica de negocio | `src/Residentes.Api/Controllers/ResidentesController/ResidentesController.cs` |
 | CRUD REST con códigos HTTP correctos (200/201/204/400/404) | mismo controlador |
 
 ---
@@ -221,7 +221,7 @@ Hay ejemplos listos para usar en el archivo `.http` del proyecto Api.
 
 ```bash
 dotnet build
-dotnet run --project "src/Mini-Gestor de Residentes"
+dotnet run --project "src/Residentes.Api"
 ```
 
 Abre `https://localhost:xxxx/` para ver Swagger.

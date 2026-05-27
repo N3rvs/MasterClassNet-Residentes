@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Residentes.Application.Dtos;
 using Residentes.Application.Services;
 
-namespace MiniGestorResidentes.Api.Controllers
+namespace Residentes.Api.Controllers
 {
     // ─────────────────────────────────────────────────────────────────────────────
     // CONTROLADOR (capa de presentación / API)

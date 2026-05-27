@@ -1,6 +1,6 @@
 <Solution>
   <Folder Name="/API/">
-    <Project Path="src/Mini-Gestor de Residentes/Mini-Gestor de Residentes.csproj" />
+    <Project Path="src/Residentes.Api/Residentes.Api.csproj" />
   </Folder>
   <Folder Name="/Application/">
     <Project Path="src/Residentes.Application/Residentes.Application.csproj" />
