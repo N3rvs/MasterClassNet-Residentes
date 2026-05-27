@@ -88,6 +88,121 @@ Abre `https://localhost:xxxx/` para ver Swagger.
 
 ---
 
+## 👥 Trabajo en equipo con Git (MUY importante)
+
+Una parte clave de este aprendizaje **no es solo el código**: es aprender a
+colaborar como se hace en cualquier empresa real. Antes de tocar nada, lee esto.
+
+### Reglas del repo
+
+- La rama **`main` es mía** (la del profesor). **NADIE escribe directamente en `main`.**
+- Cada alumno trabaja **en su propia rama** (o en su propio fork).
+- Los cambios entran a `main` **solo por Pull Request**, después de revisión.
+
+### Flujo recomendado: Fork + Pull Request
+
+Este es el flujo estándar en proyectos open source y en muchas empresas.
+
+**1) Hacer un fork** del repositorio desde GitHub (botón "Fork" arriba a la derecha).
+Eso te crea una copia tuya bajo tu cuenta.
+
+**2) Clonar TU fork** a tu máquina:
+
+```bash
+git clone https://github.com/TU-USUARIO/Mini-Gestor-de-Residentes.git
+cd "Mini-Gestor-de-Residentes"
+```
+
+**3) Añadir el repo original como `upstream`** para poder traer cambios míos:
+
+```bash
+git remote add upstream https://github.com/MI-USUARIO/Mini-Gestor-de-Residentes.git
+git remote -v   # comprueba que ves "origin" (tu fork) y "upstream" (el mío)
+```
+
+**4) Crear una rama** para cada ejercicio o feature. **Nunca trabajes sobre `main`.**
+
+```bash
+git checkout main
+git pull upstream main          # sincronizas con la versión más reciente del profesor
+git checkout -b feature/nombre-corto-del-cambio
+```
+
+Convención de nombres de rama:
+- `feature/...` → algo nuevo (`feature/value-object-edad`)
+- `fix/...` → arreglo de un bug (`fix/get-by-name-case-sensitive`)
+- `chore/...` → tareas menores (`chore/actualizar-readme`)
+
+**5) Trabajar, commitear con mensajes claros:**
+
+```bash
+git add .
+git commit -m "feat: añadir Value Object Edad con validación de rango"
+```
+
+Buenos mensajes de commit:
+- ✅ `fix: corregir GetByName para que sea case-insensitive`
+- ✅ `feat: añadir endpoint DELETE de residentes`
+- ❌ `cambios`, `update`, `asdf`, `aaa`
+
+**6) Subir tu rama a TU fork:**
+
+```bash
+git push origin feature/nombre-corto-del-cambio
+```
+
+**7) Abrir un Pull Request** desde GitHub:
+- Base: `MI-USUARIO/Mini-Gestor-de-Residentes` rama `main`
+- Compare: `TU-USUARIO/...` rama `feature/...`
+- Describe **qué hiciste y por qué**.
+
+**8) Esperar revisión.** Es normal que pida cambios. No es personal: es así
+como se aprende. Aplica los cambios en la misma rama y vuelve a hacer
+`git add` + `commit` + `push`. El PR se actualiza solo.
+
+### Mantener tu fork actualizado
+
+Cuando yo suba cambios a `main`, tú debes traerlos a tu fork:
+
+```bash
+git checkout main
+git pull upstream main          # trae los cambios míos
+git push origin main            # los sube a tu fork
+```
+
+Y si estabas a mitad de un ejercicio en otra rama, **rebasa**:
+
+```bash
+git checkout feature/mi-rama
+git rebase main
+```
+
+### Cosas que NUNCA debes hacer
+
+- ❌ `git push --force` sobre `main`.
+- ❌ Commitear directamente en `main`.
+- ❌ Subir archivos generados (`bin/`, `obj/`, `.vs/`). Para eso está el `.gitignore`.
+- ❌ Subir secretos (cadenas de conexión, claves de API) en `appsettings.json`.
+- ❌ Mezclar 5 ejercicios distintos en un mismo PR. Una rama = una cosa.
+
+### Comandos de Git que vas a usar a diario
+
+| Comando | Para qué |
+|---|---|
+| `git status` | Ver qué archivos has cambiado |
+| `git diff` | Ver QUÉ has cambiado en esos archivos |
+| `git log --oneline -10` | Ver los últimos 10 commits |
+| `git branch` | Listar tus ramas locales |
+| `git checkout -b nombre` | Crear y cambiarte a una rama nueva |
+| `git switch nombre` | Cambiar a una rama existente |
+| `git pull upstream main` | Traer los cambios del repo original |
+| `git push origin mi-rama` | Subir tu rama a tu fork |
+
+> 💡 Si te pierdes con Git, **NO improvises** con `--force`. Pregunta. Git es
+> recuperable casi siempre… si no le mientes con `--force`.
+
+---
+
 ## 🎯 Roadmap de mejoras (ejercicios para escalar el proyecto)
 
 Cada bloque está pensado como un **ejercicio progresivo**. Hazlos en orden:
