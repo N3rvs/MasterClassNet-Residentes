@@ -1,0 +1,44 @@
+@host = http://localhost:5153
+
+### Listar todos los residentes
+GET {{host}}/api/residentes
+Accept: application/json
+
+###
+
+### Crear un residente
+POST {{host}}/api/residentes
+Content-Type: application/json
+
+{
+  "nombre": "Ana García",
+  "edad": 82,
+  "genero": "Mujer",
+  "necesitaAsistenciaMedica": true
+}
+
+###
+
+### Obtener un residente por Id (sustituye el GUID por uno real)
+GET {{host}}/api/residentes/00000000-0000-0000-0000-000000000000
+Accept: application/json
+
+###
+
+### Actualizar un residente
+PUT {{host}}/api/residentes/00000000-0000-0000-0000-000000000000
+Content-Type: application/json
+
+{
+  "nombre": "Ana García López",
+  "edad": 83,
+  "genero": "Mujer",
+  "necesitaAsistenciaMedica": true
+}
+
+###
+
+### Eliminar un residente
+DELETE {{host}}/api/residentes/00000000-0000-0000-0000-000000000000
+
+###

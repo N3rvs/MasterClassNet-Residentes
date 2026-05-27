@@ -1,0 +1,53 @@
+## Salida de compilación
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+
+## Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.rsuser
+
+## Rider / VS Code
+.idea/
+.vscode/
+*.swp
+
+## Resultados de tests
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.VisualState.xml
+TestResult.xml
+coverage*.json
+coverage*.xml
+coverage*.info
+
+## NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+!**/packages/build/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## ASP.NET
+appsettings.*.local.json
+*.pfx
+secrets.json
+
+## Otros
+*.tmp
+*.log
+*.bak
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store

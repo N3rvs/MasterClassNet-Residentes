@@ -109,14 +109,14 @@ Eso te crea una copia tuya bajo tu cuenta.
 **2) Clonar TU fork** a tu máquina:
 
 ```bash
-git clone https://github.com/TU-USUARIO/Mini-Gestor-de-Residentes.git
-cd "Mini-Gestor-de-Residentes"
+git clone https://github.com/TU-USUARIO/MasterClassNet-Residentes.git
+cd MasterClassNet-Residentes
 ```
 
 **3) Añadir el repo original como `upstream`** para poder traer cambios míos:
 
 ```bash
-git remote add upstream https://github.com/MI-USUARIO/Mini-Gestor-de-Residentes.git
+git remote add upstream https://github.com/N3rvs/MasterClassNet-Residentes.git
 git remote -v   # comprueba que ves "origin" (tu fork) y "upstream" (el mío)
 ```
 
@@ -152,8 +152,8 @@ git push origin feature/nombre-corto-del-cambio
 ```
 
 **7) Abrir un Pull Request** desde GitHub:
-- Base: `MI-USUARIO/Mini-Gestor-de-Residentes` rama `main`
-- Compare: `TU-USUARIO/...` rama `feature/...`
+- Base: `N3rvs/MasterClassNet-Residentes` rama `main`
+- Compare: `TU-USUARIO/MasterClassNet-Residentes` rama `feature/...`
 - Describe **qué hiciste y por qué**.
 
 **8) Esperar revisión.** Es normal que pida cambios. No es personal: es así
