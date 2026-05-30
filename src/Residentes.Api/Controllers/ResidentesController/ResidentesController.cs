@@ -17,7 +17,7 @@ namespace Residentes.Api.Controllers
     // o al servicio, NUNCA al controlador.
     // ─────────────────────────────────────────────────────────────────────────────
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class ResidentesController : ControllerBase
     {
         private readonly ResidenteService _residenteService;
